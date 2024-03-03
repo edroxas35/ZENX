@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZENX</title>
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="\style.css">
+<style>
+
+body {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; 
+        height: 180vh;
+        margin: 0; 
+    }       
+    .container{
+        width: 1050px;
+        height: 450px;
+        border: none;
+        flex-direction: column;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .can1{
+        width: 450px;
+        height: 75px;
+        border: none;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+
+    .can2{
+        width: 1050px;
+        height: 450px;
+        border: none;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .item1{
+        width: 300px;
+        height: 450px;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+
+    }
+
+    .a1{
+      width: 150px;
+      height: 375px;
+      border: 2px solid #130000;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+        
+
+    }
+
+    .item2{
+        width: 450px;
+        height: 420px;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .b1{
+        width: 600px;
+        height: 450px;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: baseline;
+
+    }
+    .b2{
+        width: 600px;
+        height: 150px;
+        border: none;
+    }
+
+    .item3{
+        width: 300px;
+        height: 450px;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    .c{
+      width: 120px;
+      height: 45px;
+      border: 2px solid #130000;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    #first{
+    width: 450px;
+    height: 300px;
+    border: none;
+    background: #FFF;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+    
+
+}
+
+#second{
+    width: 252px;
+    height: 132px;
+    border: none;
+    background: #FFF;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: baseline;
+    
+}
+#third{
+    width: 240px;
+    height: 30px;
+    border: none;
+    background: #FFF;
+    margin: auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+#third1{
+    width: 240px;
+    height: 49.2px;
+    border: none;
+    background: #FFF;
+    margin: auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+#fourth{
+    width: 150px;
+    height: 48px;
+    border: 1.5px solid #130000;
+    border-radius: 7px;
+    margin: auto;
+    display: flex;
+    overflow: hidden;
+
+}
+
+#fourth img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#fifth{
+    width: 105px;
+    height: 28.8px;
+    border: none;
+    background: white;
+    margin: auto;
+    display: flex;
+}
+
+.legend{
+    width: 30px;
+    height: 30px;
+    border: 1px solid #130000;
+    border-radius: 5px;
+    padding: 7.5px;
+    background: green;
+    margin: 5px;
+    float: left;
+    text-align: center; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+
+}
+
+.legend1{
+    width: 30px;
+    height: 30px;
+    border: 1px solid #130000;
+    border-radius: 5px;
+    padding: 7.5px;
+    background: red;
+    margin: 5px;
+    float: left;
+    text-align: center; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+#l{
+    width: 24px;
+    height: 21px;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    margin: 5px;
+    float: left;
+    text-align: center; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    font-size: medium;
+
+    
+}
+
+#le{
+    width: 450px;
+    height: 54px;
+    border: none;
+    border-radius: 5px;
+    background: #FFF;
+    margin: auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: baseline;
+
+}
+
+#el{
+    width: 204px;
+    height: 54px;
+    border: 1.5px solid #130000;
+    border-radius: 8px;
+    background: #FFF;
+    margin: auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: baseline;
+
+}
+
+#a{
+    width: 192px;
+    height: 30px;
+    border: none;
+    background: #FFF;
+    margin: auto;
+    
+}
+
+#hnu{
+    width: 420px;
+    height: 60px;
+    border: none;
+    border-radius: 5px;
+    margin: auto;
+    display: flex;
+    overflow: hidden;
+
+}
+
+#unh{
+    width: 375px;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    padding: 7.5px;
+    margin: 5px;
+    float: left;
+    text-align: center; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+#style{
+    font-size: xx-large;
+    font-display: optional;
+    font-family: monospace;
+    font-weight: bold;
+}
+#s1{
+width: 29.4px;
+height: 29.4px;
+border: 1px solid #130000;
+border-radius: 5px;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+
+#s2{
+width: 29.4px;
+height: 29.4px;
+border: 1px solid #130000;
+border-radius: 5px;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#s3{
+width: 29.4px;
+height: 29.4px;
+border: 1px solid #130000;
+border-radius: 5px;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#s4{
+width: 29.4px;
+height: 29.4px;
+border: 1px solid #130000;
+border-radius: 5px;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#s5{
+width: 29.4px;
+height: 29.4px;
+border: 1px solid #130000;
+border-radius: 5px;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#s6{
+width: 29.4px;
+height: 29.4px;
+border: 1px solid #130000;
+border-radius: 5px;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#s7{
+width: 29.4px;
+height: 29.4px;
+border: 1px solid #130000;
+border-radius: 5px;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#s8{
+width: 29.4px;
+height: 29.4px;
+border: 1px solid #130000;
+border-radius: 5px;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#s9{
+width: 29.4px;
+height: 29.4px;
+border: 1px solid #130000;
+border-radius: 5px;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#s10{
+width: 29.4px;
+height: 29.4px;
+border: 1px solid #130000;
+border-radius: 5px;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#s11{
+width: 29.4px;
+height: 29.4px;
+border: 1px solid #130000;
+border-radius: 5px;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#s12{
+width: 29.4px;
+height: 29.4px;
+border: 1px solid #130000;
+border-radius: 5px;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#s13{
+width: 29.4px;
+height: 29.4px;
+border: 1px solid #130000;
+border-radius: 5px;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#s14{
+width: 29.4px;
+height: 29.4px;
+border: 1px solid #130000;
+border-radius: 5px;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#s15{
+width: 29.4px;
+height: 29.4px;
+border: 1px solid #130000;
+border-radius: 5px;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#s16{
+width: 29.4px;
+height: 29.4px;
+border: 1px solid #130000;
+border-radius: 5px;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#num{
+color: white;
+font-size: 12px;
+}
+
+#font{
+  font-size: 20px;
+  font-family: monospace;
+  margin: 0;
+  writing-mode: vertical-rl;
+  text-align: center;
+  line-height: .9;
+  color: #130000;
+  transform: rotate(180deg);
+}
+#font1{
+  font-size: 20px;
+  font-family: monospace;
+  margin: 0;
+  text-align: center;
+  line-height: .9;
+  color: #130000;
+}
+
+    @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+  html {
+    transform: rotate(90deg);
+    transform-origin: right top; 
+    width: 100vh;
+    height: 100vw;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    right: 0; 
+  }
+}
+
+    
+    
+</style>
+</head>
+<body>
+    <div>
+        <div id = "hnu">
+            <div id = "unh"><span id = "style">HNU JANSSEN FOOD COURT</span></div>
+        </div>
+    
+        <div id = "a">
+    
+        </div>
+        <div class = "container">
+            <div class= "can1">
+                <div class = "c">
+                    <div>
+                      <h2 id = "font1">STORE 5</h2>
+                    </div>
+                  </div>
+                  <div class = "c">
+                      <div>
+                        <h2 id = "font1">STORE 4</h2>
+                      </div>
+                  </div>
+            </div>
+
+            <div class= "can2">
+                <div class = "item1">
+                    <div class = "a1">
+                      <div>
+                        <h2 id = "font">OTHER TABLES</h2>
+                      </div>
+                    </div>
+                  </div>
+                  <div class = "item2">
+                      <div class = "b1">
+                          <div id = "first">
+                              <div id = "second">
+                                  <div id = "third">
+                                      <div id = "fifth">
+                                          <div id = "s1">
+                                              <span id = "num">1</span>
+                                          </div>
+                                          <div id = "s2">
+                                              <span id = "num">2</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div id = "third1">
+                                      <div id = "fourth">
+                                          <img src="img/table.jpg" alt="wood">
+                                      </div>
+                                  </div>
+                                  <div id = "third">
+                                      <div id = "fifth">
+                                          <div id = "s4">
+                                              <span id = "num">4</span>
+                                          </div>
+                                          <div id = "s3">
+                                              <span id = "num">3</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                                 
+                              <div id ="second">
+                                  <div id = "third">
+                                      <div id = "fifth">
+                                          <div id = "s5">
+                                              <span id = "num">5</span>
+                                          </div>
+                                          <div id = "s6">
+                                              <span id = "num">6</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div id = "third1">
+                                      <div id = "fourth">
+                                          <img src="img/table.jpg" alt="wood">
+                                      </div>
+                                  </div>
+                                  <div id = "third">
+                                      <div id = "fifth">
+                                          <div id = "s8">
+                                              <span id = "num">8</span>
+                                          </div>
+                                          <div id = "s7">
+                                              <span id = "num">7</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div id ="first">
+                              <div id ="second">
+                                  <div id = "third">
+                                      <div id = "fifth">
+                                          <div id = "s13">
+                                              <span id = "num">13</span>
+                                          </div>
+                                          <div id = "s14">
+                                              <span id = "num">14</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div id = "third1">
+                                      <div id = "fourth">
+                                          <img src="img/table.jpg" alt="wood">
+                                      </div>
+                                  </div>
+                                  <div id = "third">
+                                      <div id = "fifth">
+                                          <div id = "s16">
+                                              <span id = "num">16</span>
+                                          </div>
+                                          <div id = "s15">
+                                              <span id = "num">15</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div id ="second">
+                                  <div id = "third">
+                                      <div id = "fifth">
+                                          <div id = "s9">
+                                              <span id = "num">9</span>
+                                          </div>
+                                          <div id = "s10">
+                                              <span id = "num">10</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div id = "third1">
+                                      <div id = "fourth">
+                                          <img src="img/table.jpg" alt="wood">
+                                      </div>
+                                  </div>
+                                  <div id = "third">
+                                      <div id = "fifth">
+                                          <div id = "s12">
+                                              <span id = "num">12</span>
+                                          </div>
+                                          <div id = "s11">
+                                              <span id = "num">11</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                      </div>
+                      <div class = "b2">
+                          <div id  ="a"></div>
+          
+                          <div id = "le">
+          
+                              <div id ="el">
+                                  <div id = "l">Legend:</div>
+                                  <div class="legend">
+                                      <span id = "num">Vacant</span>
+                                  </div>
+                                  <div class="legend1">
+                                      <span id = "num">Occupied</span>
+                                  </div>
+                              </div>
+                              
+                          </div>
+                      </div>
+          
+                      </div>
+                  </div>
+                  <div class = "item3">
+                    <div class = "c">
+                      <div>
+                        <h2 id = "font1">STORE 3</h2>
+                      </div>
+                    </div>
+                    <div class = "c">
+                        <div>
+                          <h2 id = "font1">STORE 2</h2>
+                        </div>
+                    </div>
+                    <div class = "c">
+                      <div>
+                        <h2 id = "font1">STORE 1</h2>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            
+        </div>
+        <script>
+            const firebaseConfig = {
+        apiKey: "AIzaSyAfUtdOAOd2aDM2E0-Edm1XLPLdw8sJiWE",
+        authDomain: "toggle-button-7af6d.firebaseapp.com",
+        databaseURL: "https://toggle-button-7af6d-default-rtdb.firebaseio.com",
+        projectId: "toggle-button-7af6d",
+        storageBucket: "toggle-button-7af6d.appspot.com",
+        messagingSenderId: "85544836419",
+        appId: "1:85544836419:web:34e46291226f528548a3f6",
+        measurementId: "G-MDLRGTQ1J7"
+      };
+      firebase.initializeApp(firebaseConfig);
+      
+      $(document).ready(function() {
+        var database = firebase.database();
+        var data1;
+        var data2;
+        var data3;
+        var data4;
+        var data5;
+        var data6;
+        var data7;
+        var data8;
+        var data9;
+        var data10;
+        var data11;
+        var data12;
+        var data13;
+        var data14;
+        var data15;
+        var data16;
+
+        database.ref("sensor1/data1").on("value", function(snapshot) {
+            data1 = snapshot.val();
+            if (data1 === "1") {
+            $("#s1").css("background", "#ff0000"); // Red color
+            } else {
+            $("#s1").css("background", "#008000"); // Green color
+            }
+        });
+
+        database.ref("sensor2/data2").on("value", function(snapshot) {
+            data2 = snapshot.val();
+            if (data2 === "1") {
+            $("#s2").css("background", "#ff0000"); // Red color
+            } else {
+            $("#s2").css("background", "#008000"); // Green color
+            }
+        });
+
+        database.ref("sensor3/data3").on("value", function(snapshot) {
+            data3 = snapshot.val();
+            if (data3 === "1") {
+            $("#s3").css("background", "#ff0000"); // Red color
+            } else {
+            $("#s3").css("background", "#008000"); // Green color
+            }
+        });
+
+        database.ref("sensor4/data4").on("value", function(snapshot) {
+            data4 = snapshot.val();
+            if (data4 === "1") {
+            $("#s4").css("background", "#ff0000"); // Red color
+            } else {
+            $("#s4").css("background", "#008000"); // Green color
+            }
+
+        });
+
+        database.ref("sensor5/data5").on("value", function(snapshot) {
+            data5 = snapshot.val();
+            if (data5 === "1") {
+            $("#s5").css("background", "#ff0000"); // Red color
+            } else {
+            $("#s5").css("background", "#008000"); // Green color
+            }
+        });
+
+        database.ref("sensor6/data6").on("value", function(snapshot) {
+            data6 = snapshot.val();
+            if (data6 === "1") {
+            $("#s6").css("background", "#ff0000"); // Red color
+            } else {
+            $("#s6").css("background", "#008000"); // Green color
+            }
+        });
+
+        database.ref("sensor7/data7").on("value", function(snapshot) {
+            data7 = snapshot.val();
+            if (data7 === "1") {
+            $("#s7").css("background", "#ff0000"); // Red color
+            } else {
+            $("#s7").css("background", "#008000"); // Green color
+            }
+        });
+
+        database.ref("sensor8/data8").on("value", function(snapshot) {
+            data8 = snapshot.val();
+            if (data8 === "1") {
+            $("#s8").css("background", "#ff0000"); // Red color
+            } else {
+            $("#s8").css("background", "#008000"); // Green color
+            }
+
+        });
+
+        database.ref("sensor9/data9").on("value", function(snapshot) {
+            data9 = snapshot.val();
+            if (data9 === "1") {
+            $("#s9").css("background", "#ff0000"); // Red color
+            } else {
+            $("#s9").css("background", "#008000"); // Green color
+            }
+        });
+
+        database.ref("sensor10/data10").on("value", function(snapshot) {
+            data10 = snapshot.val();
+            if (data10 === "1") {
+            $("#s10").css("background", "#ff0000"); // Red color
+            } else {
+            $("#s10").css("background", "#008000"); // Green color
+            }
+        });
+
+        database.ref("sensor11/data11").on("value", function(snapshot) {
+            data11 = snapshot.val();
+            if (data11 === "1") {
+            $("#s11").css("background", "#ff0000"); // Red color
+            } else {
+            $("#s11").css("background", "#008000"); // Green color
+            }
+        });
+
+        database.ref("sensor12/data12").on("value", function(snapshot) {
+            data12 = snapshot.val();
+            if (data12 === "1") {
+            $("#s12").css("background", "#ff0000"); // Red color
+            } else {
+            $("#s12").css("background", "#008000"); // Green color
+            }
+
+        });
+        database.ref("sensor13/data13").on("value", function(snapshot) {
+            data13 = snapshot.val();
+            if (data13 === "1") {
+            $("#s13").css("background", "#ff0000"); // Red color
+            } else {
+            $("#s13").css("background", "#008000"); // Green color
+            }
+        });
+
+        database.ref("sensor14/data14").on("value", function(snapshot) {
+            data14 = snapshot.val();
+            if (data14 === "1") {
+            $("#s14").css("background", "#ff0000"); // Red color
+            } else {
+            $("#s14").css("background", "#008000"); // Green color
+            }
+        });
+
+        database.ref("sensor15/data15").on("value", function(snapshot) {
+            data15 = snapshot.val();
+            if (data15 === "1") {
+            $("#s15").css("background", "#ff0000"); // Red color
+            } else {
+            $("#s15").css("background", "#008000"); // Green color
+            }
+        });
+
+        database.ref("sensor16/data16").on("value", function(snapshot) {
+            data16 = snapshot.val();
+            if (data16 === "1") {
+            $("#s16").css("background", "#ff0000"); // Red color
+            } else {
+            $("#s16").css("background", "#008000"); // Green color
+            }
+
+        });
+
+
+
+        
+      
+      });
+      
+        </script>
+    </div>
+</body>
+
+</html> 
